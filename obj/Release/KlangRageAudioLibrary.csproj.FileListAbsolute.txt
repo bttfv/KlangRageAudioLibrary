@@ -17,3 +17,4 @@ C:\Users\ldg\OneDrive\Projects\BackToTheFutureV\KlangRageAudioLibrary\obj\Releas
 C:\Users\ldg\OneDrive\Projects\BackToTheFutureV\KlangRageAudioLibrary\obj\Release\KlangRageAudioLibrary.csproj.CopyComplete
 C:\Users\ldg\OneDrive\Projects\BackToTheFutureV\KlangRageAudioLibrary\obj\Release\KlangRageAudioLibrary.dll
 C:\Users\ldg\OneDrive\Projects\BackToTheFutureV\KlangRageAudioLibrary\obj\Release\KlangRageAudioLibrary.pdb
+C:\Users\lucad\OneDrive\Projects\BackToTheFutureV\KlangRageAudioLibrary\obj\Release\KlangRageAudioLibrary.csprojAssemblyReference.cache
