@@ -1,0 +1,10 @@
+C:\Users\lucad\OneDrive\Projects\BackToTheFutureV\KlangRageAudioLibrary\bin\Debug\KlangRageAudioLibrary.dll
+C:\Users\lucad\OneDrive\Projects\BackToTheFutureV\KlangRageAudioLibrary\bin\Debug\KlangRageAudioLibrary.pdb
+C:\Users\lucad\OneDrive\Projects\BackToTheFutureV\KlangRageAudioLibrary\bin\Debug\irrKlang.NET4.dll
+C:\Users\lucad\OneDrive\Projects\BackToTheFutureV\KlangRageAudioLibrary\bin\Debug\ScriptHookVDotNet3.dll
+C:\Users\lucad\OneDrive\Projects\BackToTheFutureV\KlangRageAudioLibrary\bin\Debug\ScriptHookVDotNet3.pdb
+C:\Users\lucad\OneDrive\Projects\BackToTheFutureV\KlangRageAudioLibrary\bin\Debug\ScriptHookVDotNet3.xml
+C:\Users\lucad\OneDrive\Projects\BackToTheFutureV\KlangRageAudioLibrary\obj\Debug\KlangRageAudioLibrary.csproj.CoreCompileInputs.cache
+C:\Users\lucad\OneDrive\Projects\BackToTheFutureV\KlangRageAudioLibrary\obj\Debug\KlangRageAudioLibrary.csproj.CopyComplete
+C:\Users\lucad\OneDrive\Projects\BackToTheFutureV\KlangRageAudioLibrary\obj\Debug\KlangRageAudioLibrary.dll
+C:\Users\lucad\OneDrive\Projects\BackToTheFutureV\KlangRageAudioLibrary\obj\Debug\KlangRageAudioLibrary.pdb
