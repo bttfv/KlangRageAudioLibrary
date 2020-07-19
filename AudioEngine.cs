@@ -3,6 +3,7 @@ using IrrKlang;
 using KlangRageAudioLibrary.Utility;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 
 // FIXME: Script doesn't detect correctly cinematic camera position
 // TODO: Disable proccesing if no sound playing
@@ -31,6 +32,11 @@ namespace KlangRageAudioLibrary
         /// Returns number of created <see cref="AudioPlayer"/>.
         /// </summary>
         public int SoundsCount => _allSounds.Count;
+
+        /// <summary>
+        /// Returns true if any instance of the sounds is still playing.
+        /// </summary> 
+        public bool IsAnyInstancePlaying => _allSounds.Any(x => x.IsAnyInstancePlaying);
 
         /// <summary>
         /// Returns <see cref="ISoundEngine"/> object.
