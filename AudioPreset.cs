@@ -31,5 +31,7 @@
                                                                                   AudioFlags.FadeIn |
                                                                                   AudioFlags.FadeOut |
                                                                                   AudioFlags.Loop);
+
+        public static AudioPreset No3D { get; } = new AudioPreset(1f, 8f, AudioFlags.No3D);
     }
 }

@@ -10,6 +10,7 @@ namespace KlangRageAudioLibrary
         InteriorSound = 2,
         ExteriorSound = 4,
         FadeIn = 8,
-        FadeOut = 16
+        FadeOut = 16,
+        No3D = 32
     }
 }

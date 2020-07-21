@@ -68,12 +68,22 @@ namespace KlangRageAudioLibrary
 
             ISound iSound;
 
-            if (_soundSource == default)
-                iSound = _soundEngine.Play3D(FilePath, 
-                    MathUtils.Vector3ToVector3D(Vector3.Zero), Flags.HasFlag(AudioFlags.Loop), true, StreamMode.AutoDetect);
+            if (Flags.HasFlag(AudioFlags.No3D))
+            {
+                if (_soundSource == default)
+                    iSound = _soundEngine.Play2D(FilePath, Flags.HasFlag(AudioFlags.Loop), true, StreamMode.AutoDetect);
+                else
+                    iSound = _soundEngine.Play2D(_soundSource, Flags.HasFlag(AudioFlags.Loop), true, false);
+            }
             else
-                iSound = _soundEngine.Play3D(_soundSource, 0, 0, 0, Flags.HasFlag(AudioFlags.Loop), true, false);
-
+            {
+                if (_soundSource == default)
+                    iSound = _soundEngine.Play3D(FilePath,
+                        MathUtils.Vector3ToVector3D(Vector3.Zero), Flags.HasFlag(AudioFlags.Loop), true, StreamMode.AutoDetect);
+                else
+                    iSound = _soundEngine.Play3D(_soundSource, 0, 0, 0, Flags.HasFlag(AudioFlags.Loop), true, false);
+            }
+           
             if (iSound == null)
             {
                 throw new Exception($"KRAL Engine init failed. File Path: {FilePath}");
