@@ -132,8 +132,8 @@ namespace KlangRageAudioLibrary
                 x.Velocity = MathUtils.Vector3ToVector3D(Velocity);
 
                 // For some reason irrklang doesn't work with speed less than 0.1
-                if (!x.Paused)
-                    x.PlaybackSpeed = Game.TimeScale < 0.1f ? 0.11f : Game.TimeScale;
+                //if (!x.Paused)
+                //    x.PlaybackSpeed = Game.TimeScale < 0.1f ? 0.11f : Game.TimeScale;
             });
 
             // Update volume in case if it was changed
