@@ -46,8 +46,9 @@
     <StartupObject />
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="irrKlang.NET4">
-      <HintPath>$(GTAPath)\scripts\irrKlang.NET4.dll</HintPath>
+    <Reference Include="irrKlang.NET4, Version=1.0.6617.18847, Culture=neutral, PublicKeyToken=a854741bd80517c7, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>irrKlang\irrKlang.NET4.dll</HintPath>
     </Reference>
     <Reference Include="ScriptHookVDotNet3, Version=3.0.4.0, Culture=neutral, processorArchitecture=AMD64">
       <HintPath>..\packages\ScriptHookVDotNet3.3.0.4\lib\net48\ScriptHookVDotNet3.dll</HintPath>
