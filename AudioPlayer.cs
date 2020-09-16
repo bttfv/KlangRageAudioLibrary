@@ -19,8 +19,6 @@ namespace KlangRageAudioLibrary
         private readonly ISoundEngine _soundEngine;
         internal bool Disposed;
 
-        public uint PlayPosition => Last.PlayPosition;
-
         private AudioPlayer()
         {
             SoundInstances = new List<ISound>();
