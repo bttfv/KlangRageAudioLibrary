@@ -16,6 +16,12 @@ namespace KlangRageAudioLibrary
                 
         public Main()
         {
+            Version version = System.Reflection.Assembly.GetExecutingAssembly().GetName().Version;
+            DateTime buildDate = new DateTime(2000, 1, 1)
+                    .AddDays(version.Build).AddSeconds(version.Revision * 2);
+
+            System.IO.File.AppendAllText($"./ScriptHookVDotNet.log", $"KlangRageAudioLibrary - {version} ({buildDate})" + Environment.NewLine);
+
             Tick += OnTick;
             Aborted += OnAbort;
 
