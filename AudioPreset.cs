@@ -33,5 +33,7 @@
                                                                                   AudioFlags.Loop);
 
         public static AudioPreset No3D { get; } = new AudioPreset(1f, 8f, AudioFlags.No3D);
+
+        public static AudioPreset No3DLoop { get; } = new AudioPreset(1f, 8f, AudioFlags.No3D | AudioFlags.Loop);
     }
 }
