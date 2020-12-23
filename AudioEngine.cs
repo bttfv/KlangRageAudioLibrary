@@ -81,11 +81,11 @@ namespace KlangRageAudioLibrary
 
             // GameplayCamera gives incorrect position values when player is in car and using first person mode
             //  so we use player head as sound listener
-            //if (CameraUtils.IsPlayerUseFirstPerson() && !CameraUtils.IsCameraValid(World.RenderingCamera))
-            //{
-            //    cameraPos = Main.PlayerPed.Bones[Bone.SkelHead].Position;
-            //    cameraDir = Main.PlayerPed.Bones[Bone.SkelHead].ForwardVector;
-            //}
+            if (CameraUtils.IsPlayerUseFirstPerson() && !CameraUtils.IsCameraValid(World.RenderingCamera))
+            {
+                cameraPos = Main.PlayerPed.Bones[Bone.SkelHead].Position;
+                cameraDir = Main.PlayerPed.Bones[Bone.SkelHead].ForwardVector;
+            }
             SoundEngine.SetListenerPosition(MathUtils.Vector3ToVector3D(cameraPos), MathUtils.Vector3ToVector3D(cameraDir));
 
             AllAudioEngines.ForEach(x => x.Process());
