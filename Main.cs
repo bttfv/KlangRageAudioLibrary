@@ -1,7 +1,6 @@
-﻿using System;
-using GTA;
-using IrrKlang;
+﻿using GTA;
 using KlangRageAudioLibrary.Utility;
+using System;
 
 namespace KlangRageAudioLibrary
 {

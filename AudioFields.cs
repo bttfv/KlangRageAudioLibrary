@@ -1,7 +1,7 @@
-﻿using System.Collections.Generic;
-using GTA;
+﻿using GTA;
 using GTA.Math;
 using IrrKlang;
+using System.Collections.Generic;
 
 namespace KlangRageAudioLibrary
 {
