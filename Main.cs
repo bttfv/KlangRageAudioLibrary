@@ -12,7 +12,7 @@ namespace KlangRageAudioLibrary
         private static ExternalThread externalThread;
 
         public static bool GamePaused = false;
-                
+
         public Main()
         {
             Version version = System.Reflection.Assembly.GetExecutingAssembly().GetName().Version;

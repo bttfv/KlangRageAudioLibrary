@@ -20,7 +20,7 @@ namespace KlangRageAudioLibrary.Utility
             return (int)(firstFloat + (secondFloat - (float)firstFloat) * by);
         }
     }
-    internal class CameraUtils 
+    internal class CameraUtils
     {
         public static bool IsCameraValid(Camera cam)
         {

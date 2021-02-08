@@ -16,7 +16,7 @@ namespace KlangRageAudioLibrary
         /// Defines path to base sound folder, e.g. ModFolder/Sounds
         /// </summary>
         public string BaseSoundFolder { get; set; } = string.Empty;
-        
+
         /// <summary>
         /// Controls state of audio pause system.
         /// </summary>
@@ -116,7 +116,8 @@ namespace KlangRageAudioLibrary
 
         internal void Process()
         {
-            _allSounds.ForEach(x => {
+            _allSounds.ForEach(x =>
+            {
                 if (x.Disposed)
                     _soundsToRemove.Add(x);
                 else
@@ -133,7 +134,7 @@ namespace KlangRageAudioLibrary
         public void Dispose()
         {
             _allSounds?.ForEach(x => x.Dispose());
-            _allSounds?.Clear();            
+            _allSounds?.Clear();
         }
 
         /// <summary>

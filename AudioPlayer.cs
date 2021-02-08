@@ -22,7 +22,7 @@ namespace KlangRageAudioLibrary
         private AudioPlayer()
         {
             SoundInstances = new List<ISound>();
-        
+
             _instancesToRemove = new List<ISound>();
         }
 
@@ -83,7 +83,7 @@ namespace KlangRageAudioLibrary
                 else
                     iSound = _soundEngine.Play3D(_soundSource, 0, 0, 0, Flags.HasFlag(AudioFlags.Loop), true, false);
             }
-           
+
             if (iSound == null)
             {
                 throw new Exception($"KRAL Engine init failed. File Path: {FilePath}");
@@ -120,13 +120,13 @@ namespace KlangRageAudioLibrary
             }
 
             InstancesNumber = SoundInstances.Count();
-            
+
             IsAnyInstancePlaying = InstancesNumber > 0;
 
             if (SoundInstances.All(x => x.Paused is true))
                 return;
 
-            SoundInstances.ForEach(x => 
+            SoundInstances.ForEach(x =>
             {
                 x.MinDistance = MinimumDistance;
                 x.Velocity = MathUtils.Vector3ToVector3D(Velocity);
@@ -143,7 +143,7 @@ namespace KlangRageAudioLibrary
             if (IsDoingFadeIn)
             {
                 ProcessFadeIn();
-            } 
+            }
             else if (IsDoingFadeOut)
             {
                 ProcessFadeOut();
@@ -169,7 +169,7 @@ namespace KlangRageAudioLibrary
 
         public void Stop(bool instant = false)
         {
-            if (SoundInstances.All(x => x.Finished) || 
+            if (SoundInstances.All(x => x.Finished) ||
                 SoundInstances.All(x => x.Paused is true))
                 return;
 
@@ -193,7 +193,7 @@ namespace KlangRageAudioLibrary
             SoundInstances?.Clear();
             Disposed = true;
         }
-        
+
         private void Add(AudioPreset preset, Entity entity)
         {
             Flags = preset.Flags;

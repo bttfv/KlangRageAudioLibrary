@@ -22,7 +22,7 @@ namespace KlangRageAudioLibrary
             Last.Volume =
                 MathUtils.Lerp(Last.Volume, 0f, Game.LastFrameTime * FadeOutMultiplier);
 
-            if (!(Last.Volume <= 0.05f)) 
+            if (!(Last.Volume <= 0.05f))
                 return;
 
             IsDoingFadeOut = false;
