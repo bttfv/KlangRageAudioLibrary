@@ -41,7 +41,7 @@ namespace KlangRageAudioLibrary
         {
             _soundEngine = AudioEngine.SoundEngine;
 
-            var audioInfo = new FileInfo($".\\scripts\\{audioEngine.BaseSoundFolder}/{name}");
+            FileInfo audioInfo = new FileInfo($".\\scripts\\{audioEngine.BaseSoundFolder}/{name}");
 
             if (audioInfo.Exists == false)
             {
@@ -160,9 +160,9 @@ namespace KlangRageAudioLibrary
             }
 
             // Adjust sound position relatively to world
-            var boneIndex = SourceEntity.Bones[SourceBone].Index;
+            int boneIndex = SourceEntity.Bones[SourceBone].Index;
 
-            var soundPos = MathUtils.Vector3ToVector3D(boneIndex == -1 ? SourceEntity.Position : SourceEntity.Bones[boneIndex].Position);
+            Vector3D soundPos = MathUtils.Vector3ToVector3D(boneIndex == -1 ? SourceEntity.Position : SourceEntity.Bones[boneIndex].Position);
 
             SoundInstances.ForEach(x => x.Position = soundPos);
         }

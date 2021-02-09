@@ -39,8 +39,8 @@ namespace KlangRageAudioLibrary.Utility
             // TODO: Make it work with any car, 
             //  currently works only with 2 front doors
 
-            var doorOpen = false;
-            foreach (var door in vehicle.Doors)
+            bool doorOpen = false;
+            foreach (VehicleDoor door in vehicle.Doors)
             {
                 if (door.IsOpen)
                     doorOpen = true;

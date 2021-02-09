@@ -32,7 +32,7 @@ namespace KlangRageAudioLibrary.Utility
 
         private static System.Diagnostics.Process GetActiveAppProcess()
         {
-            GetWindowThreadProcessId(GetForegroundWindow(), out var activeProcessId);
+            GetWindowThreadProcessId(GetForegroundWindow(), out int activeProcessId);
 
             return System.Diagnostics.Process.GetProcessById(activeProcessId);
         }

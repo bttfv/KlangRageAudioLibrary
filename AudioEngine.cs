@@ -76,8 +76,8 @@ namespace KlangRageAudioLibrary
             // Adjust spectator position for proper stereo calculation
 
             // Check what camera is in use now -> gameplay (player pespective) or custom camera (like some free camera)
-            var cameraPos = CameraUtils.IsCameraValid(World.RenderingCamera) ? World.RenderingCamera.Position : GameplayCamera.Position;
-            var cameraDir = CameraUtils.IsCameraValid(World.RenderingCamera) ? World.RenderingCamera.Direction : GameplayCamera.Direction;
+            GTA.Math.Vector3 cameraPos = CameraUtils.IsCameraValid(World.RenderingCamera) ? World.RenderingCamera.Position : GameplayCamera.Position;
+            GTA.Math.Vector3 cameraDir = CameraUtils.IsCameraValid(World.RenderingCamera) ? World.RenderingCamera.Direction : GameplayCamera.Direction;
 
             // GameplayCamera gives incorrect position values when player is in car and using first person mode
             //  so we use player head as sound listener
@@ -145,7 +145,7 @@ namespace KlangRageAudioLibrary
         /// <returns>Object of <see cref="AudioPlayer"/> object.</returns>
         public AudioPlayer Create(string name, AudioPreset preset)
         {
-            var audio = new AudioPlayer(this, name, preset);
+            AudioPlayer audio = new AudioPlayer(this, name, preset);
 
             _allSounds.Add(audio);
 
@@ -161,7 +161,7 @@ namespace KlangRageAudioLibrary
         /// <returns>Object of <see cref="AudioPlayer"/>.</returns>
         public AudioPlayer Create(string name, Stream res, AudioPreset preset)
         {
-            var audio = new AudioPlayer(this, name, res, preset);
+            AudioPlayer audio = new AudioPlayer(this, name, res, preset);
 
             _allSounds.Add(audio);
 
