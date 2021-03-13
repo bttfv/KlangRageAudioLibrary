@@ -17,7 +17,7 @@ namespace KlangRageAudioLibrary.Utility
 
         public void Start()
         {
-            _backgroundThread = new Thread(Process)
+            _backgroundThread = new Thread(Tick)
             {
                 IsBackground = true
             };
@@ -37,7 +37,7 @@ namespace KlangRageAudioLibrary.Utility
             return System.Diagnostics.Process.GetProcessById(activeProcessId);
         }
 
-        private void Process()
+        private void Tick()
         {
             while (true)
             {

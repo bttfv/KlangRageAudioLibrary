@@ -33,7 +33,7 @@ namespace KlangRageAudioLibrary
         {
             GamePaused = false;
 
-            AudioEngine.ProcessAll();
+            AudioEngine.TickAll();
         }
         private static void OnAbort(object sender, EventArgs e)
         {

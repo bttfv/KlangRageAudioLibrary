@@ -102,7 +102,7 @@ namespace KlangRageAudioLibrary
             Last.Paused = false;
         }
 
-        internal void Process()
+        internal void Tick()
         {
             if (SourceEntity == null)
                 return;

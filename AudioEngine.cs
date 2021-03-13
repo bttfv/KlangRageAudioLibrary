@@ -68,7 +68,7 @@ namespace KlangRageAudioLibrary
             AllAudioEngines.Add(this);
         }
 
-        internal static void ProcessAll()
+        internal static void TickAll()
         {
             if (SoundEngine == null)
                 return;
@@ -88,7 +88,7 @@ namespace KlangRageAudioLibrary
             }
             SoundEngine.SetListenerPosition(MathUtils.Vector3ToVector3D(cameraPos), MathUtils.Vector3ToVector3D(cameraDir));
 
-            AllAudioEngines.ForEach(x => x.Process());
+            AllAudioEngines.ForEach(x => x.Tick());
         }
 
         internal static void DisposeAll()
@@ -114,14 +114,14 @@ namespace KlangRageAudioLibrary
             IsMuted = mute;
         }
 
-        internal void Process()
+        internal void Tick()
         {
             _allSounds.ForEach(x =>
             {
                 if (x.Disposed)
                     _soundsToRemove.Add(x);
                 else
-                    x.Process();
+                    x.Tick();
             });
 
             if (_soundsToRemove.Count > 0)
