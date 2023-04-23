@@ -56,9 +56,9 @@ namespace KlangRageAudioLibrary
             Add(preset, audioEngine.DefaultSourceEntity);
         }
 
-        public void Play(bool stopPrevious = false)
+        public void Play(bool stopPrevious = false, bool ignoreFadeOut = false)
         {
-            if (SourceEntity == null)
+            if (SourceEntity == null || (!ignoreFadeOut && Screen.IsFadedOut))
                 return;
 
             if (stopPrevious && SoundInstances.Count > 0)
