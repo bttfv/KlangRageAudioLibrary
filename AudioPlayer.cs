@@ -189,7 +189,7 @@ namespace KlangRageAudioLibrary
 
         public void Dispose()
         {
-            SoundInstances?.ForEach(x => { x.Stop(); x.Dispose(); });
+            SoundInstances?.ForEach(x => x.Stop());
             SoundInstances?.Clear();
             Disposed = true;
         }
