@@ -34,7 +34,18 @@ namespace KlangRageAudioLibrary.Utility
         {
             GetWindowThreadProcessId(GetForegroundWindow(), out int activeProcessId);
 
-            return System.Diagnostics.Process.GetProcessById(activeProcessId);
+            System.Diagnostics.Process temp;
+
+            try
+            {
+                temp = System.Diagnostics.Process.GetProcessById(activeProcessId);
+            }
+            catch
+            {
+                temp = null;
+            }
+
+            return temp;
         }
 
         private void Tick()
@@ -62,7 +73,7 @@ namespace KlangRageAudioLibrary.Utility
                     }
                 }
 
-                AudioEngine.MuteAll(GetActiveAppProcess().ProcessName != "GTA5");
+                AudioEngine.MuteAll(GetActiveAppProcess()?.ProcessName != "GTA5");
             }
         }
     }
