@@ -45,7 +45,7 @@ namespace KlangRageAudioLibrary
 
             if (audioInfo.Exists == false)
             {
-                Screen.ShowSubtitle($"File: {audioInfo.FullName} doesn't exists!");
+                Screen.ShowSubtitle($"File: {audioInfo.FullName} doesn't exist!");
                 return;
             }
 

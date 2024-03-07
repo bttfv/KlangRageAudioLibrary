@@ -18,9 +18,9 @@ namespace KlangRageAudioLibrary
         public string BaseSoundFolder { get; set; } = string.Empty;
 
         /// <summary>
-        /// Controls state of audio pause system.
+        /// Controls state of automatic audio fade in/out system.
         /// </summary>
-        public bool EnablePauseSystem { get; set; } = true;
+        public bool EnableFadeSystem { get; set; } = true;
 
         /// <summary>
         /// Defines default <see cref="Entity"/> for stereo sound.
@@ -44,6 +44,12 @@ namespace KlangRageAudioLibrary
         public static ISoundEngine SoundEngine { get; }
 
         internal static bool IsMuted { get; private set; }
+
+        internal static bool IsFadingOut { get; private set; }
+
+        internal static bool IsFadedOut { get; private set; }
+
+        internal static bool IsFadingIn { get; private set; }
 
         internal static float OriginalSoundVolume;
 
@@ -80,7 +86,7 @@ namespace KlangRageAudioLibrary
             GTA.Math.Vector3 cameraDir = CameraUtils.IsCameraValid(World.RenderingCamera) ? World.RenderingCamera.Direction : GameplayCamera.Direction;
 
             // GameplayCamera gives incorrect position values when player is in car and using first person mode
-            //  so we use player head as sound listener
+            // so we use player head as sound listener
             if (CameraUtils.IsPlayerUseFirstPerson() && !CameraUtils.IsCameraValid(World.RenderingCamera))
             {
                 cameraPos = Main.PlayerPed.Bones[Bone.SkelHead].Position;
@@ -107,11 +113,52 @@ namespace KlangRageAudioLibrary
             if (mute == IsMuted)
                 return;
 
-            if (mute)
+            if (mute && !(IsFadingOut || IsFadedOut || IsFadingIn))
                 OriginalSoundVolume = SoundEngine.SoundVolume;
 
             SoundEngine.SoundVolume = mute ? 0 : OriginalSoundVolume;
             IsMuted = mute;
+        }
+
+        internal static void FadeOutAll()
+        {
+            if (IsFadedOut)
+                return;
+
+            if (!IsFadingOut)
+                OriginalSoundVolume = SoundEngine.SoundVolume;
+
+            IsFadingOut = true;
+
+            SoundEngine.SoundVolume =
+                MathUtils.Lerp(SoundEngine.SoundVolume, 0f, Game.LastFrameTime);
+
+            if (!(SoundEngine.SoundVolume <= 0.05f))
+                return;
+
+            SoundEngine.SoundVolume = 0;
+
+            IsFadedOut = true;
+            IsFadingOut = false;
+        }
+
+        internal static void FadeInAll()
+        {
+            if (IsMuted)
+                return;
+
+            IsFadingIn = true;
+            IsFadingOut = false;
+            IsFadedOut = false;
+
+            SoundEngine.SoundVolume =
+                MathUtils.Lerp(SoundEngine.SoundVolume, OriginalSoundVolume, Game.LastFrameTime);
+
+            if (!(SoundEngine.SoundVolume >= OriginalSoundVolume))
+                return;
+
+            SoundEngine.SoundVolume = OriginalSoundVolume;
+            IsFadingIn = false;
         }
 
         internal void Tick()
@@ -128,6 +175,15 @@ namespace KlangRageAudioLibrary
             {
                 _soundsToRemove.ForEach(x => _allSounds.Remove(x));
                 _soundsToRemove.Clear();
+            }
+
+            if ((GTA.UI.Screen.IsFadingOut || GTA.UI.Screen.IsFadedOut) && EnableFadeSystem)
+            {
+                FadeOutAll();
+            }
+            else if (GTA.UI.Screen.IsFadingIn && EnableFadeSystem)
+            {
+                FadeInAll();
             }
         }
 

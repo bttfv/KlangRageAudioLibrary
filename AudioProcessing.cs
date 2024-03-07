@@ -47,7 +47,7 @@ namespace KlangRageAudioLibrary
 
             // Define volume based on is car doors open / closed
             SoundInstances.ForEach(x => x.Volume =
-                VehicleUtils.IsAnyOfFrontDoorsOpen((Vehicle)SourceEntity) ? _originalVolume : _originalVolume / 4);
+                VehicleUtils.IsAnyPassengerDoorOpen((Vehicle)SourceEntity) ? _originalVolume : _originalVolume / 4);
         }
 
         private void ProcessExteriorSound()
@@ -67,7 +67,7 @@ namespace KlangRageAudioLibrary
 
             // Define volume based on is car doors open / closed
             SoundInstances.ForEach(x => x.Volume =
-                VehicleUtils.IsAnyOfFrontDoorsOpen((Vehicle)SourceEntity) ? _originalVolume : _originalVolume / 2);
+                VehicleUtils.IsAnyPassengerDoorOpen((Vehicle)SourceEntity) ? _originalVolume : _originalVolume / 2);
         }
     }
 }
