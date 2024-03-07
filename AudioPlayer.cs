@@ -45,7 +45,7 @@ namespace KlangRageAudioLibrary
 
             if (audioInfo.Exists == false)
             {
-                Screen.ShowSubtitle($"File: {audioInfo.FullName} doesn't exists!");
+                Screen.ShowSubtitle($"File: {audioInfo.FullName} doesn't exist!");
                 return;
             }
 
@@ -60,6 +60,11 @@ namespace KlangRageAudioLibrary
         {
             if (SourceEntity == null || (!ignoreFadeOut && Screen.IsFadedOut))
                 return;
+
+            if (Screen.IsFadingOut)
+                IsDoingFadeOut = true;
+            else if (Screen.IsFadingIn)
+                IsDoingFadeIn = true;
 
             if (stopPrevious && SoundInstances.Count > 0)
             {

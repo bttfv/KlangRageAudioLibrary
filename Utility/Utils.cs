@@ -28,25 +28,22 @@ namespace KlangRageAudioLibrary.Utility
         }
         public static bool IsPlayerUseFirstPerson()
         {
-            return Function.Call<int>(Hash.GET_FOLLOW_PED_CAM_VIEW_MODE) == 4 && !GameplayCamera.IsLookingBehind &&
-                   !Function.Call<bool>((Hash)0xF5F1E89A970B7796);
+            return Function.Call<bool>(Hash.IS_CINEMATIC_FIRST_PERSON_VEHICLE_INTERIOR_CAM_RENDERING) || Function.Call<bool>(Hash.IS_BONNET_CINEMATIC_CAM_RENDERING);
         }
     }
     internal class VehicleUtils
     {
-        public static bool IsAnyOfFrontDoorsOpen(Vehicle vehicle)
+        public static bool IsAnyPassengerDoorOpen(Vehicle vehicle)
         {
-            // TODO: Make it work with any car, 
-            //  currently works only with 2 front doors
-
-            bool doorOpen = false;
             foreach (VehicleDoor door in vehicle.Doors)
             {
-                if (door.IsOpen)
-                    doorOpen = true;
+                if (door.Index != VehicleDoorIndex.Hood && door.Index != VehicleDoorIndex.Trunk && door.IsOpen)
+                {
+                    return true;
+                }
             }
 
-            return doorOpen;
+            return false;
         }
     }
 }

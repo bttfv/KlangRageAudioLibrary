@@ -80,7 +80,7 @@ namespace KlangRageAudioLibrary
             GTA.Math.Vector3 cameraDir = CameraUtils.IsCameraValid(World.RenderingCamera) ? World.RenderingCamera.Direction : GameplayCamera.Direction;
 
             // GameplayCamera gives incorrect position values when player is in car and using first person mode
-            //  so we use player head as sound listener
+            // so we use player head as sound listener
             if (CameraUtils.IsPlayerUseFirstPerson() && !CameraUtils.IsCameraValid(World.RenderingCamera))
             {
                 cameraPos = Main.PlayerPed.Bones[Bone.SkelHead].Position;
