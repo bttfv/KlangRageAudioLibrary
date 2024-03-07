@@ -61,9 +61,9 @@ namespace KlangRageAudioLibrary
             if (SourceEntity == null || (!ignoreFadeOut && Screen.IsFadedOut))
                 return;
 
-            if (Screen.IsFadingOut)
+            if (!ignoreFadeOut && Screen.IsFadingOut)
                 IsDoingFadeOut = true;
-            else if (Screen.IsFadingIn)
+            else if (!ignoreFadeOut && Screen.IsFadingIn)
                 IsDoingFadeIn = true;
 
             if (stopPrevious && SoundInstances.Count > 0)
